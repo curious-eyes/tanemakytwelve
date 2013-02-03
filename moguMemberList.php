@@ -46,7 +46,7 @@ get_header(); ?>
             echo '<p style="display:inline;float:right;">'.get_avatar($user->ID, 150).'</p>';
             echo '<p class="fullname"><strong>'.$user->last_name." ".$user->first_name.'</strong></p>';
             echo '<p>'.nl2br($user->user_description).'</p>';
-            if (strlen($page_id) > 0){
+            if (intval($page_id) > 0){
                 echo '<p><strong><a href="'.$pathToRoot.'/?page_id='.$page_id.'">自己紹介ページへ</strong></p></a><br />';
             }
             if (strlen($facebook) > 0){
