@@ -45,13 +45,13 @@ get_header(); ?>
             echo '<p class="fullname"><strong>'.$user->last_name." ".$user->first_name.'</strong></p>';
             echo '<p><strong>・自己紹介</strong><br />'.nl2br($user->user_description).'</p>';
             if (strlen($facebook)){
-                echo '<a href="http://www.facebook.com/'.$facebook.'"><img target="_blank" class="social" src="'.$pathToTemplate.'/images/social/Facebook.png" alt="facebook" /></a>';
+                echo '<a href="http://www.facebook.com/'.$facebook.'" target="_blank"><img class="social" src="'.$pathToTemplate.'/images/social/Facebook.png" alt="facebook" /></a>';
             }
             if (strlen($twitter)){
-                echo '<a href="http://www.twitter.com/'.$twitter.'"><img target="_blank" class="social" src="'.$pathToTemplate.'/images/social/Twitter.png" alt="twitter" /></a>';
+                echo '<a href="http://www.twitter.com/'.$twitter.'" target="_blank"><img src="'.$pathToTemplate.'/images/social/Twitter.png" alt="twitter" /></a>';
             }
             if (strlen($google)){
-                echo '<a href="http://plus.google.com/u/0/'.$google.'"><img target="_blank" class="social" src="'.$pathToTemplate.'/images/social/Google plus.png" alt="googleplus" /></a>';
+                echo '<a href="http://plus.google.com/u/0/'.$google.'" target="_blank"><img class="social" src="'.$pathToTemplate.'/images/social/Google plus.png" alt="googleplus" /></a>';
             }
             echo "</div>";
             ?>
