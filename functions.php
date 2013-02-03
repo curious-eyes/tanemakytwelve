@@ -21,6 +21,15 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+function custom_user_contactmethods( $user_contactmethods ) {
+    return array(
+        'twitter'  => 'twitter',
+        'facebook' => 'facebook',
+        'google'   => 'google+',
+    );
+}
+
+add_filter( 'user_contactmethods', 'custom_user_contactmethods' );
 
 /**
  * Sets up the content width value based on the theme's design and stylesheet.
