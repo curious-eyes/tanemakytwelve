@@ -38,19 +38,24 @@ get_header(); ?>
             <?php
             echo '<div class="member">';
             $pathToTemplate = get_bloginfo('template_directory');
+            $pathToRoot = get_bloginfo('url');
+            $page_id = $user->page_id;
             $facebook = $user->facebook;
             $twitter = $user->twitter;
             $google = $user->google;
             echo '<p style="display:inline;float:right;">'.get_avatar($user->ID, 150).'</p>';
             echo '<p class="fullname"><strong>'.$user->last_name." ".$user->first_name.'</strong></p>';
-            echo '<p><strong>・自己紹介</strong><br />'.nl2br($user->user_description).'</p>';
-            if (strlen($facebook)){
+            echo '<p>'.nl2br($user->user_description).'</p>';
+            if (strlen($page_id) > 0){
+                echo '<p><strong><a href="'.$pathToRoot.'/?page_id='.$page_id.'">自己紹介ページへ</strong></p></a><br />';
+            }
+            if (strlen($facebook) > 0){
                 echo '<a href="http://www.facebook.com/'.$facebook.'" target="_blank"><img class="social" src="'.$pathToTemplate.'/images/social/Facebook.png" alt="facebook" /></a>';
             }
-            if (strlen($twitter)){
+            if (strlen($twitter) > 0){
                 echo '<a href="http://www.twitter.com/'.$twitter.'" target="_blank"><img src="'.$pathToTemplate.'/images/social/Twitter.png" alt="twitter" /></a>';
             }
-            if (strlen($google)){
+            if (strlen($google) > 0){
                 echo '<a href="http://plus.google.com/u/0/'.$google.'" target="_blank"><img class="social" src="'.$pathToTemplate.'/images/social/Google plus.png" alt="googleplus" /></a>';
             }
             echo "</div>";
