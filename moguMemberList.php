@@ -37,7 +37,7 @@ get_header(); ?>
         <?php foreach ($users as $user) : ?>
             <?php
             echo '<div class="member">';
-            $pathToTemplate = get_bloginfo('template_directory');
+            $pathToTemplate = get_bloginfo('stylesheet_directory');
             $pathToRoot = get_bloginfo('url');
             $page_id = $user->page_id;
             $facebook = $user->facebook;
