@@ -11,6 +11,7 @@ get_header(); ?>
         margin-top: 24px;
         padding-top: 24px;
         border-top: solid 1px #e3e3e3;
+        float: left;
     }
 
     .member p{
@@ -36,8 +37,7 @@ get_header(); ?>
 		<div id="content" role="main">
 
             <?php
-            $users = get_users(array('role'=>'editor',
-                               'orderby'=>'ID', 'order'=>'ASC',
+            $users = get_users(array('orderby'=>'ID', 'order'=>'ASC',
                 )
             );?>
 
