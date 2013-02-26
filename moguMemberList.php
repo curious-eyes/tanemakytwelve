@@ -47,6 +47,9 @@ get_header(); ?>
             $users = get_users(array('orderby'=>'ID', 'order'=>'ASC',
                 )
             );?>
+        <?php
+        if ( is_user_logged_in() ) { // ログインしている人だけ表示 start
+        ?>
 
         <?php foreach ($users as $user) : ?>
             <?php
@@ -85,6 +88,13 @@ get_header(); ?>
             echo '</div>';
             ?>
         <?php endforeach; ?>
+
+        <?php
+        }else{
+            // ログインしている人だけ表示 start
+            echo '<div><p>会員限定コンテンツです。<br />ログインしてください。</p></div>';
+        }
+        ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
