@@ -70,7 +70,11 @@ get_header(); ?>
             echo '<p>'.nl2br($user->user_description).'</p>';
 
             // 自己紹介ページを取得（メンバー一覧の子ページとして作成したページを取得）
-            $mypages = get_pages(array('sort_order'=>'desc', 'sort_column'=>'ID', 'child_of'=>$thisPostId, 'authors'=>$user->ID));
+            $mypages = get_pages(array('sort_order'=>'desc'
+            , 'sort_column'=>'ID'
+            , 'child_of'=>$thisPostId
+            , 'post_status'=>'private,publish'
+            , 'authors'=>$user->ID));
             if(count($mypages)>0){
                 echo '<p>';
                 foreach($mypages as $mypage) {
