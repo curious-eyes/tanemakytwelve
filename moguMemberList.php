@@ -37,6 +37,13 @@ get_header(); ?>
 		<div id="content" role="main">
 
             <?php
+            while ( have_posts() ) : the_post();
+                // 現在のページIDを取得（無理矢理かも。。。）
+                // このページIDの子ページを、各メンバーの自己紹介ページとして取得するため
+                foreach($posts as $post) {
+                    $thisPostId = $post->ID;
+                }
+            endwhile;
             $users = get_users(array('orderby'=>'ID', 'order'=>'ASC',
                 )
             );?>
@@ -46,7 +53,6 @@ get_header(); ?>
             echo '<div class="member">';
             $pathToTemplate = get_bloginfo('stylesheet_directory');
             $pathToRoot = get_bloginfo('url');
-            $page_id = $user->page_id;
             $facebook = $user->facebook;
             $twitter = $user->twitter;
             $google = $user->google;
@@ -62,8 +68,15 @@ get_header(); ?>
             }
             echo '<p class="fullname"><strong>'.$user->last_name." ".$user->first_name.'</strong></p>';
             echo '<p>'.nl2br($user->user_description).'</p>';
-            if (intval($page_id) > 0){
-                echo '<p><strong><a href="'.$pathToRoot.'/?page_id='.$page_id.'">自己紹介ページへ</strong></p></a><br />';
+
+            // 自己紹介ページを取得（メンバー一覧の子ページとして作成したページを取得）
+            $mypages = get_pages(array('sort_order'=>'desc', 'sort_column'=>'ID', 'child_of'=>$thisPostId, 'authors'=>$user->ID));
+            if(count($mypages)>0){
+                echo '<p>';
+                foreach($mypages as $mypage) {
+                    echo '<strong><a href="'.$mypage->guid.'">'.$mypage->post_title.'</a></strong><br />';
+                }
+                echo '</p>';
             }
             echo '</div>';
             ?>
