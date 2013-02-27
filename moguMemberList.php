@@ -49,13 +49,12 @@ get_header(); ?>
             );?>
         <?php
         if ( is_user_logged_in() ) { // ログインしている人だけ表示 start
+            $pathToTemplate = get_bloginfo('stylesheet_directory');
         ?>
 
         <?php foreach ($users as $user) : ?>
             <?php
             echo '<div class="member">';
-            $pathToTemplate = get_bloginfo('stylesheet_directory');
-            $pathToRoot = get_bloginfo('url');
             $facebook = $user->facebook;
             $twitter = $user->twitter;
             $google = $user->google;
