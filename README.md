@@ -6,3 +6,5 @@ tanemakytwelve
 ディレクトリは
 theme/tanemakytwelve
 としてアップしてください。
+
+了解です！(micc)
